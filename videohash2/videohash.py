@@ -13,10 +13,9 @@ from .collagemaker import MakeCollage
 from .framesextractor import FramesExtractor
 from .tilemaker import make_tile
 from .utils import (
-    create_and_return_temporary_directory,
-    does_path_exists,
-    get_list_of_all_files_in_dir,
     _get_task_uid,
+    create_and_return_temporary_directory,
+    get_list_of_all_files_in_dir,
 )
 from .videocopy import (
     _create_required_dirs_and_check_for_errors,

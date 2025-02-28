@@ -5,7 +5,6 @@ from typing import List
 from PIL import Image
 
 from .exceptions import CollageOfZeroFramesError
-from .utils import does_path_exists
 
 # Module to create collage from list of images, the
 # images are the extracted frames of the input video.
@@ -97,7 +96,7 @@ class MakeCollage:
             raise CollageOfZeroFramesError("Can not make a collage of zero images.")
 
         output_path_dir = os.path.dirname(self.output_path) + "/"
-        if not does_path_exists(output_path_dir):
+        if not os.path.exists(output_path_dir):
             raise FileNotFoundError(
                 "Directory at which output collage is to be saved does not exists."
             )

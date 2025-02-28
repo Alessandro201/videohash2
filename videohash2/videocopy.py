@@ -6,10 +6,9 @@ from typing import Optional
 from .exceptions import DidNotSupplyPathOrUrl, StoragePathDoesNotExist
 from .downloader import Download
 from .utils import (
-    get_list_of_all_files_in_dir,
-    does_path_exists,
-    create_and_return_temporary_directory,
     _get_task_uid,
+    create_and_return_temporary_directory,
+    get_list_of_all_files_in_dir,
 )
 
 
@@ -123,7 +122,7 @@ def _create_required_dirs_and_check_for_errors(
 
     if not storage_path:
         storage_path = create_and_return_temporary_directory()
-    if not does_path_exists(storage_path):
+    if not os.path.exists(storage_path):
         raise StoragePathDoesNotExist(f"Storage path '{storage_path}' does not exist.")
 
     os_path_sep = os.path.sep

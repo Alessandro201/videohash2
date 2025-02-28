@@ -12,7 +12,6 @@ from .exceptions import (
     FFmpegNotFound,
     FramesExtractorOutPutDirDoesNotExist,
 )
-from .utils import does_path_exists
 
 # python module to extract the frames from the input video.
 # Uses the FFmpeg Software to extract the frames.
@@ -61,12 +60,12 @@ class FramesExtractor:
         if ffmpeg_path:
             self.ffmpeg_path = ffmpeg_path
 
-        if not does_path_exists(self.video_path):
+        if not os.path.exists(self.video_path):
             raise FileNotFoundError(
                 f"No video found at '{self.video_path}' for frame extraction."
             )
 
-        if not does_path_exists(self.output_dir):
+        if not os.path.exists(self.output_dir):
             raise FramesExtractorOutPutDirDoesNotExist(
                 f"No directory called '{self.output_dir}' found for storing the frames."
             )
