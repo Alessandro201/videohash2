@@ -1,16 +1,16 @@
+import math
 import os
 import re
-import math
 import shlex
 from shutil import which
-from subprocess import PIPE, DEVNULL, Popen, check_output
+from subprocess import DEVNULL, PIPE, Popen, check_output
 from typing import Optional, Union
 
 from .exceptions import (
     FFmpegError,
     FFmpegFailedToExtractFrames,
     FFmpegNotFound,
-    FramesExtractorOutPutDirDoesNotExist,
+    FramesExtractorOutPutDirDoesNotExist
 )
 
 # python module to extract the frames from the input video.
@@ -85,15 +85,12 @@ class FramesExtractor:
         """
 
         if not self.ffmpeg_path:
-
             if not which("ffmpeg"):
-
                 raise FFmpegNotFound(
                     "FFmpeg is not on the system path. Install FFmpeg and add it to the path."
                     + "Or you can also pass the path via the 'ffmpeg_path' parameter."
                 )
             else:
-
                 self.ffmpeg_path = str(which("ffmpeg"))
 
         # Check the ffmpeg
@@ -105,7 +102,6 @@ class FramesExtractor:
             raise FFmpegNotFound(f"FFmpeg not found at '{self.ffmpeg_path}'.")
 
         else:
-
             if "ffmpeg version" not in output:
                 raise FFmpegError(
                     f"ffmpeg at '{self.ffmpeg_path}' is not really ffmpeg. Output of ffmpeg -version is \n'{output}'."
@@ -151,7 +147,6 @@ class FramesExtractor:
         crop_list = []
 
         for start_time in time_start_list:
-
             # Stopping the loop if we go beyond the end length of the video.
             # We round the video length up to make sure we do get the whole
             # video.
@@ -230,7 +225,6 @@ class FramesExtractor:
         ffmpeg_error = error.decode()
 
         if len(os.listdir(self.output_dir)) == 0:
-
             raise FFmpegFailedToExtractFrames(
                 f"FFmpeg could not extract any frames.\n{command}\n{ffmpeg_output}\n{ffmpeg_error}"
             )

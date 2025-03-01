@@ -3,8 +3,9 @@ import re
 import shutil
 from pathlib import Path
 from typing import Optional
-from .exceptions import DidNotSupplyPathOrUrl, StoragePathDoesNotExist
+
 from .downloader import Download
+from .exceptions import DidNotSupplyPathOrUrl, StoragePathDoesNotExist
 from .utils import (
     _get_task_uid,
     create_and_return_temporary_directory,
@@ -59,7 +60,6 @@ def _copy_video_to_video_dir(
             shutil.copyfile(os.path.abspath(path), video_path)
 
     if url:
-
         Download(
             url,
             video_download_dir,

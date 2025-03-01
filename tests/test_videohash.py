@@ -10,7 +10,6 @@ this_dir = os.path.dirname(os.path.realpath(__file__))
 
 
 def test_all():
-
     source1 = (
         "https://raw.githubusercontent.com/demmenie/videohash2/main/assets/rocket.mkv"
     )

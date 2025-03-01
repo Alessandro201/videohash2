@@ -2,10 +2,11 @@ import re
 import shutil
 from subprocess import PIPE, Popen
 from typing import Optional
+
 from .exceptions import DidNotSupplyPathOrUrl, FFmpegUnableToGetDuration
 from .videocopy import (
-    _create_required_dirs_and_check_for_errors,
     _copy_video_to_video_dir,
+    _create_required_dirs_and_check_for_errors,
 )
 
 # Module to determine the length of video.

@@ -206,7 +206,7 @@ class Downloader:
 def download_ffmpeg(dirs: InstallDirs, mode: str):
     """Download the ffmpeg archive and print progress to the console"""
     print_progress = lambda: print(  # noqa E731
-        f"Progress: {downloader.progress() / 10 ** 6:.2f}MB / {downloader.size / 10 ** 6:.2f}MB"
+        f"Progress: {downloader.progress() / 10**6:.2f}MB / {downloader.size / 10**6:.2f}MB"
     )
     downloader = Downloader(dirs.url, dirs.download_dest, dirs.hash_url, mode=mode)
     dl_thread = threading.Thread(target=downloader.download, daemon=True)

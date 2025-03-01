@@ -127,7 +127,6 @@ class MakeCollage:
 
         # arbitrarily selecting the first image from the list, index 0
         with Image.open(self.image_list[0]) as first_frame_image_in_list:
-
             # Find the width and height of the first image of the list.
             # Assuming all the images have same size.
             frame_image_width, frame_image_height = first_frame_image_in_list.size
@@ -166,7 +165,6 @@ class MakeCollage:
 
         # iterate the frames and paste them on their position on the collage_image
         for count, frame_path in enumerate(self.image_list):
-
             # Set the x coordinate to zero if we are on the first column
             # If self.images_per_row_in_collage is 4
             # then 0,4,8 and so on should have their x coordinate as 0

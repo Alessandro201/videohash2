@@ -1,8 +1,8 @@
 import os
-import tempfile
 import random
-from typing import List
+import tempfile
 from pathlib import Path
+from typing import List
 
 
 def get_list_of_all_files_in_dir(directory: str) -> List[str]:
