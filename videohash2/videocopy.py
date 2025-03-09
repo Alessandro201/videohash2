@@ -120,6 +120,9 @@ def _create_required_dirs_and_check_for_errors(
     if path and url:
         raise ValueError("Specify either a path or an URL and NOT both.")
 
+    if path and not os.path.exists():
+        raise FileNotFoundError(f"Video path '{path}' does not exists")
+
     if not storage_path:
         storage_path = create_and_return_temporary_directory()
     if not os.path.exists(storage_path):
