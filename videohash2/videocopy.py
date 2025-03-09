@@ -1,3 +1,4 @@
+import logging
 import os
 import re
 import shutil
@@ -120,7 +121,7 @@ def _create_required_dirs_and_check_for_errors(
     if path and url:
         raise ValueError("Specify either a path or an URL and NOT both.")
 
-    if path and not os.path.exists():
+    if path and not os.path.exists(path):
         raise FileNotFoundError(f"Video path '{path}' does not exists")
 
     if not storage_path:
